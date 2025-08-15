@@ -1,0 +1,86 @@
+﻿@using Assignment_3.Data.Entities
+@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container p-5">
+    @if (TempData["SuccessMsg"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMsg"]
+        </div>
+    }
+    
+    <h4>Student List (Age > 18)</h4>
+    <p>Total Students: @ViewBag.StudentCount</p>
+    
+    <div class="col mb-3">
+        <form asp-action="Search" asp-controller="Students" method="get">
+            <table class="full-table">
+                <tr>
+                    <th>Search Student By Name</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="btn-input-grp">
+                            <input type="text" name="query" class="form-control" placeholder="Search by name..." />
+                            <input type="submit" value="Search" class=" btn btn-info" />
+                            <a asp-controller="Students" asp-action="Index" class="btn btn-success">Refresh</a>
+                            <a asp-controller="Students" asp-action="Create" class="btn btn-primary add-btn">Add New Student</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+    <table class="table table-light table-hover">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-success">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class=" btn btn-info">Details</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id" class=" btn btn-danger">Delete</a> 
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>
+
+
+
