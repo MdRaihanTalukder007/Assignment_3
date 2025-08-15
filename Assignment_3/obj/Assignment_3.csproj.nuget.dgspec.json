@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\Assignment_3\\Assignment_3\\Assignment_3.csproj": {}
+    "C:\\Code\\GitHub\\Assignment_3\\Assignment_3\\Assignment_3.csproj": {}
   },
   "projects": {
-    "C:\\Code\\Assignment_3\\Assignment_3\\Assignment_3.csproj": {
+    "C:\\Code\\GitHub\\Assignment_3\\Assignment_3\\Assignment_3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\Assignment_3\\Assignment_3\\Assignment_3.csproj",
+        "projectUniqueName": "C:\\Code\\GitHub\\Assignment_3\\Assignment_3\\Assignment_3.csproj",
         "projectName": "Assignment_3",
-        "projectPath": "C:\\Code\\Assignment_3\\Assignment_3\\Assignment_3.csproj",
+        "projectPath": "C:\\Code\\GitHub\\Assignment_3\\Assignment_3\\Assignment_3.csproj",
         "packagesPath": "C:\\Users\\MdRaihanTalukder\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\Assignment_3\\Assignment_3\\obj\\",
+        "outputPath": "C:\\Code\\GitHub\\Assignment_3\\Assignment_3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

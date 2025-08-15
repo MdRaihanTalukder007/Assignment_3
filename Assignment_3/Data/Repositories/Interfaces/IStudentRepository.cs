@@ -11,5 +11,6 @@ namespace Assignment_3.Data.Repositories.Interfaces
         Student? GetById(int id);
         void Update(Student student);
         void Delete(Student student);
+        bool EmailExists(string email, int? excludeId = null);
     }
 }

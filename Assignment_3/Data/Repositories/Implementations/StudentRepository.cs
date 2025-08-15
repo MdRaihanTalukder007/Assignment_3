@@ -48,5 +48,17 @@ namespace Assignment_3.Data.Repositories.Implementations
         {
             _context.Students.Remove(student);
         }
+
+        public bool EmailExists(string email, int? excludeId = null)
+        {
+            var query = _context.Students
+                .Where(s => s.Email.ToLower() == email.ToLower());
+
+            if (excludeId.HasValue)
+                query = query.Where(s => s.Id != excludeId.Value);
+
+            return query.Any();
+        }
+
     }
 }

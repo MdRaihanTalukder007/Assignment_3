@@ -42,11 +42,18 @@ namespace Assignment_3.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Student student)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _studentService.CreateStudent(student);
-                TempData["SuccessMsg"] = "Student added successfully.";
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _studentService.CreateStudent(student);
+                    TempData["SuccessMsg"] = "Student added successfully.";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Email", ex.Message);
             }
             return View(student);
         }
@@ -70,11 +77,18 @@ namespace Assignment_3.Controllers
         [HttpPost]
         public IActionResult Edit(Student student)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _studentService.UpdateStudent(student);
-                TempData["SuccessMsg"] = "Student updated successfully !";
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _studentService.UpdateStudent(student);
+                    TempData["SuccessMsg"] = "Student updated successfully !";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Email", ex.Message);
             }
             return View(student);
         }

@@ -34,14 +34,25 @@ namespace Assignment_3.Services.Implementations
             return _unitOfWork.Students.GetById(id);
         }
 
+        public bool EmailExists(string email, int? excludeId = null)
+        {
+            return _unitOfWork.Students.EmailExists(email, excludeId);
+        }
+
         public void CreateStudent(Student student)
         {
+            if (EmailExists(student.Email))
+                throw new Exception("Email already exists.");
+
             _unitOfWork.Students.Add(student);
             _unitOfWork.Complete();
         }
 
         public void UpdateStudent(Student student)
         {
+            if (EmailExists(student.Email, student.Id))
+                throw new Exception("Email already exists.");
+
             _unitOfWork.Students.Update(student);
             _unitOfWork.Complete();
         }

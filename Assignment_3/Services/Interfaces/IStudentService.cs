@@ -11,5 +11,7 @@ namespace Assignment_3.Services.Interfaces
         void CreateStudent(Student student);
         void UpdateStudent(Student student);
         void DeleteStudent(int id);
+        bool EmailExists(string email, int? excludeId = null);
+
     }
 }
